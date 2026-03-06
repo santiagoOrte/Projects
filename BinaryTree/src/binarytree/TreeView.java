@@ -151,10 +151,15 @@ public class TreeView extends JFrame implements ITreeView {
         panel.add(sectionLabel("Estadísticas"));
         panel.add(Box.createVerticalStrut(8));
         panel.add(buildStatsCard());
-        panel.add(Box.createVerticalGlue());
+        //panel.add(Box.createVerticalGlue());
 
+        panel.add(sectionLabel("Operaciones"));
+        panel.add(Box.createVerticalStrut(8));
+        panel.add(buildOperationsCard());
+        //panel.add(Box.createVerticalGlue());
+        
         // Resultado de última operación
-        panel.add(resultLabel);
+        //panel.add(resultLabel);
         return panel;
     }
 
@@ -169,6 +174,18 @@ public class TreeView extends JFrame implements ITreeView {
         card.setMaximumSize(new Dimension(Integer.MAX_VALUE, 78));
         card.add(heightLabel);
         card.add(sizeLabel);
+        return card;
+    }
+    
+    private JPanel buildOperationsCard() {
+        JPanel card = new JPanel(new GridLayout(2, 1, 0, 6));
+        card.setBackground(COLOR_CARD);
+        card.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(COLOR_BTN, 1, true),
+            new EmptyBorder(10, 14, 10, 14)
+        ));
+        card.setMaximumSize(new Dimension(Integer.MAX_VALUE, 78));
+        card.add(resultLabel);
         return card;
     }
 
